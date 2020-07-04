@@ -24,6 +24,7 @@
   font-size: calc(12px + 2vmin);
 }
 
+
 @media only screen and (max-width: 576px) {
   #NavBrand{
     text-align: center;
@@ -48,5 +49,25 @@
     width: 100%;
     color: white;
     text-align: center;
+    padding: 0;
+  }
+
+  #carrinho h5 {
+    display: none;
+  }
+
+  #carrinho Button{
+    background-color: #BF360C;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+  }
+
+  #carrinho #cart-button {
+    display: inline-block;
+  }
+
+  #carrinho #cart-back {
+    display: none;
   }
 }
