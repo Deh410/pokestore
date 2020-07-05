@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Navbar, Form, FormControl, Button, Row, Col } from 'react-bootstrap'
+import Sprites from './components/Sprites'
+
 
 function App() {
   const [cartShow, setCartShow] = useState(false)
-
 
   window.onresize = () => {
     let width = getWidth() 
@@ -73,6 +74,7 @@ function App() {
         <Row>
           <Col sm={8} style={{backgroundColor: '#00ffff', textAlign: 'center', height: '100vh'}}>
             <h5>Catálogo de Pokémon</h5>
+            <Sprites/>
           </Col>
           <Col sm={4} id="carrinho"  style={{backgroundColor: '#ff00ff'}}>
             <div id="cart-content">
