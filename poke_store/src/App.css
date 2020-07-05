@@ -1,7 +1,8 @@
 .App {
   text-align: center;
-  overflow: hidden;
-  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh + 0px);
   position: relative;
 }
 
@@ -19,9 +20,17 @@
 }
 
 #NavBrand {
-  color: #212121;
+  color: #FAFAFA;
   font-weight: bold;
   font-size: calc(12px + 2vmin);
+}
+
+#carrinho #cart-button {
+  display: none;
+}
+
+#carrinho #cart-back {
+  display: none;
 }
 
 
@@ -47,9 +56,13 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    color: white;
+    color: #050505;
     text-align: center;
     padding: 0;
+  }
+
+  #carrinho #item-carrinho{
+    display: none;
   }
 
   #carrinho h5 {

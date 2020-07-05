@@ -1,0 +1,8 @@
+#Card {
+  display:'block';
+  flex-direction: 'column';
+  width: '9rem';
+  margin: '0 auto';
+  float: 'none';
+  margin-bottom: '8px';
+}

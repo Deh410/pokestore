@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Navbar, Form, FormControl, Button, Row, Col } from 'react-bootstrap'
 import Sprites from './components/Sprites'
+import Carrinho from './components/Carrinho'
 
 
 function App() {
   const [cartShow, setCartShow] = useState(false)
+  const [toCart, setToCart] = useState('')
+
+  useEffect(() => {
+    let width = getWidth()
+    if(width >= 577) {
+      notShowButtons()
+    }else{
+      hideButton()
+    }
+    
+  }, [])
 
   window.onresize = () => {
     let width = getWidth() 
@@ -39,7 +51,7 @@ function App() {
   }
 
   function hideButton() {
-    document.getElementById("cart-content").style.cssText = "height: auto"
+    document.getElementById("cart-content").style.cssText = "display: none"
     document.getElementById("cart-button").style.cssText = "display: inline-block"
     document.getElementById("cart-back").style.cssText = "display: none"
   }
@@ -51,7 +63,6 @@ function App() {
   }
 
   function handleCart() {
-    console.log('cartShow', cartShow)
     if(cartShow){
       setCartShow(false)
       hideButton()
@@ -63,22 +74,21 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar id="navbar" expand="sm" style={{justifyContent: 'space-between'}}>
+      <Navbar id="navbar" expand="sm" style={{justifyContent: 'space-between', marginBottom: '8px'}}>
         <Navbar.Brand id = "NavBrand" href="#home">PokeStore</Navbar.Brand>
-        <Form inline id="form">
+        {/* <Form inline id="form">
           <FormControl type="text" placeholder="Pokemon" />
           <Button id="form-button" variant="primary">Buscar</Button>
-        </Form>
+        </Form> */}
       </Navbar>
       <div>
         <Row>
-          <Col sm={8} style={{backgroundColor: '#00ffff', textAlign: 'center', height: '100vh'}}>
-            <h5>Catálogo de Pokémon</h5>
-            <Sprites/>
+          <Col sm={8} style={{backgroundColor: '#fafafa', textAlign: 'center', height: 'auto', overflowY:'hidden'}}>
+            <Sprites sendChanges={setToCart}/>
           </Col>
-          <Col sm={4} id="carrinho"  style={{backgroundColor: '#ff00ff'}}>
+          <Col sm={4} id="carrinho"  style={{backgroundColor: '#fafafa'}}>
             <div id="cart-content">
-              <h5>Carrinho</h5>
+              <Carrinho id="item-carrinho" props={toCart}/>
               <Button className="btn-block w-100 btn-group" id="cart-back" onClick={handleCart} >Voltar</Button>
             </div>
             <Button className="btn-block w-100 btn-group" id="cart-button" onClick={handleCart}>Carrinho</Button>
