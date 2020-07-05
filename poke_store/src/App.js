@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { Navbar, Form, FormControl, Button, Row, Col } from 'react-bootstrap'
+import { Navbar, Button, Row, Col } from 'react-bootstrap'
 import Sprites from './components/Sprites'
 import Carrinho from './components/Carrinho'
 
